@@ -1,0 +1,30 @@
+.past-container{
+    padding: 50px;
+    display: flex;
+}
+
+.past-left{
+    flex:2;
+}
+
+.cartimg-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+  
+  .table {
+    width: 100%;
+    border-spacing: 20px;
+  }
+  
+  .name {
+    font-weight: 500;
+    color: #d1411e;
+    font-size: 18px;
+  }
+  
+  .total {
+    font-weight: 500;
+    font-size: 18px;
+  }
