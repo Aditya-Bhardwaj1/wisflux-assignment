@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navb from './components/Navb/Navb';
 import Pizzalist from './components/PizzaList/Pizzalist';
@@ -9,13 +10,17 @@ import Pastorders from './components/Pastorders/Pastorders';
 
 function App() {
   return (
-    <div className="App">
+    <>
+    <Router>
       <Navb/>
-      {/* <Pizzalist/> */}
-      {/* <Product/> */}
-      {/* <Cart/> */}
-      <Pastorders/>
-    </div>
+      <Routes>
+      <Route exact path='/' element={<Pizzalist/>}/>
+      <Route exact path='/product' element={<Product/>}/>
+      <Route exact path='/cart' element={<Cart/>}/>
+      <Route exact path='/pastorder' element={<Pastorders/>}/>
+      </Routes>
+      </Router>
+    </>
   );
 }
 

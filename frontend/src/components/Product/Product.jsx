@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import './Product.css'
 
 const Product = () => {
@@ -59,7 +60,9 @@ const Product = () => {
             </div>
             <div className="add">
                 <input type="number" defaultValue={1} className="quantity" />
+                <Link to='/cart'>
                 <button className="button">Add to cart</button>
+                </Link>
             </div>
   
         </div>
