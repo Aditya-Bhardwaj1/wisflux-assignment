@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiParam, ApiTags } from '@nestjs/swagger';
 import { User } from './user.model';
 import { UsersService } from './users.service';
@@ -13,7 +13,7 @@ export class UsersController {
         return this.userService.findAll();
     }
 
-    @Get()
+    @Get('id')
     @ApiParam({ name: 'id' })
     findOne(@Param() params ): Promise<User> {
         return this.userService.findOne(params.id);
@@ -22,9 +22,14 @@ export class UsersController {
     create(@Body() user): Promise<User> {
         return this.userService.create(user);
     }
-    @Put()
+    @Put(':id')
     @ApiParam({ name: 'id' })
-    update(@Param() params,@Body() user): Promise<User> {
+    update(@Param() params,@Body() user: User): Promise<User> {
         return this.userService.update(params.id, user);
+    }
+    @Delete(':id')
+    @ApiParam({ name: 'id' })
+    destroy(@Param() params,@Body() user): Promise<User> {
+        return this.userService.destroy(params.id);
     }
 }
